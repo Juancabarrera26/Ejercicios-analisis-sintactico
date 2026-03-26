@@ -1,6 +1,6 @@
 # Ejercicio 1: Analizador Sintactico en Python
 
-En este ejercicio se implementó un **analizador sintáctico descendente recursivo** en Python, capaz de procesar expresiones aritmeticas simples y generar su correspondiente arbol sintáctico, parse tree.
+En este ejercicio se implementó un analizador sintáctico descendente recursivo en Python, capaz de procesar expresiones aritmeticas simples y generar su correspondiente arbol sintáctico, parse tree.
 
 La implementacion se basa en la gramática proporcionada en las diapositivas del curso.
 
