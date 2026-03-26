@@ -18,7 +18,7 @@ T → T * F | F
 F → id | num | ( E )
 ```
 
-### 🔍 Significado:
+### Significado:
 
 - **E (Expresión)**: combinación de términos mediante suma.
 - **T (Término)**: combinación de factores mediante multiplicación.
