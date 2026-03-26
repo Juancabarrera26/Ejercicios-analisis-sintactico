@@ -1,82 +1,80 @@
-# Ejercicio 1: Analizador Sintactico en Python
+# Analizador sintactico descendente recursivo
 
-En este ejercicio se implementó un analizador sintáctico descendente recursivo en Python, capaz de procesar expresiones aritmeticas simples y generar su correspondiente arbol sintáctico, parse tree.
+En este ejercicio se implementa un analizador sintactico descendente recursivo en Python para procesar expresiones aritmeticas simples.
 
-La implementacion se basa en la gramática proporcionada en las diapositivas del curso.
+El programa recibe una cadena de entrada, valida su estructura segun una gramatica definida y genera un arbol sintactico que representa la forma en que se interpreta la expresion.
 
 ---
 
 ## Gramatica utilizada
 
-La gramatica definida para el analisis es:
-
+La gramatica implementada es:
 ```
-E → E + T | T
-T → T * F | F
-F → id | num | ( E )
+E -> E + T | T
+T -> T * F | F
+F -> ( E ) | operando
 ```
 
-### Significado:
+Donde:
 
-- **E (Expresión)**: combinación de términos mediante suma.
-- **T (Término)**: combinación de factores mediante multiplicación.
-- **F (Factor)**:
-  - identificadores (`id`)
-  - números (`num`)
-  - expresiones entre paréntesis
+- E representa una expresion
+- T representa un termino
+- F representa un factor
+- operando puede ser un identificador o un numero
 
 ---
 
-## Implementacion
+## Funcionamiento
 
-Se desarrolla un parser en Python utilizando el enfoque de descenso recursivo, donde cada regla de la gramatica se representa como una funcion:
+El analizador esta basado en el enfoque de descenso recursivo, donde cada regla de la gramatica se implementa como una funcion:
 
-- `E()` → maneja sumas
-- `T()` → maneja multiplicaciones
-- `F()` → maneja numeros, identificadores y paréntesis
+- E(): maneja operaciones de suma
+- T(): maneja operaciones de multiplicacion
+- F(): maneja operandos y parentesis
 
-Ademas, se implemento una clase `Nodo` para construir el arbol sintactico.
+El analisis se realiza de izquierda a derecha, consumiendo tokens a medida que se validan.
 
 ---
 
-## Arbol Sintactico
+## Arbol sintactico
 
-El arbol sintactico representa la estructura jerarquica de la expresion analizada.
+El arbol sintactico se representa mediante tuplas anidadas, donde:
+
+- El primer elemento indica el tipo de nodo (E, T o el operando)
+- Los demas elementos representan sus hijos
 
 Ejemplo:
 
 Entrada:
-
 ```
 2 + 3 * 4
 ```
-Salida del arbol:
 
+Salida:
 ```
 E
 2
 +
-  T
-  3
-  *
-  4
+ T
+ 3 
+ *
+ 4
 ```
-Esto refleja correctamente la precedencia de operadores (* antes que +).
+
+Esto refleja correctamente la precedencia de operadores, donde la multiplicacion se evalua antes que la suma.
 
 ---
 
-## Caracteristicas del Analizador
+## Caracteristicas
 
-- Manejo de operadores:
-  - Suma (`+`)
-  - Multiplicacion (`*`)
-- Soporte para:
-  - Numeros (`num`)
-  - Identificadores (`id`)
-  - Parentesis `( )`
+- Soporte para operadores:
+  - Suma (+)
+  - Multiplicacion (*)
+- Manejo de parentesis
+- Soporte para operandos (numeros o identificadores)
 - Validacion sintactica de la entrada
 - Generacion de arbol sintactico
-- Deteccion de errores (tokens inesperados o incompletos)
+- Deteccion de errores en la expresion
 
 ---
 
@@ -85,15 +83,28 @@ Esto refleja correctamente la precedencia de operadores (* antes que +).
 ```python
 analizar("2 + 3 * 4")
 analizar("a + b * c")
-analizar("2 + 3 * ( 4 + 5 )")
+analizar("2 * ( 3 + 4 )")
+analizar("a + * b")
 ```
+
+## Resultados esperados
+
+- Expresiones validas son aceptadas y generan un arbol sintactico
+- Expresiones invalidas producen un error indicando el problema
+
+---
 
 ## Limitaciones
 
-- No se incluye el operador de resta (-) en la gramatica.
-- La entrada debe estar separada por espacios (ej: 2 + 3, no 2+3).
-- No se realiza analisis lexico avanzado, con tokenizacion simple.
+- La entrada debe estar separada por espacios
+- No se incluyen otros operadores como resta o division
+- No se realiza analisis lexico avanzado
 
-## Conclusion
+---
 
-Se logro implementar un analizador sintactico funcional basado en una gramática formal, capaz de validar expresiones y representar su estructura mediante arboles sintácticos, aplicando correctamente la precedencia de operadores.
+## Posibles mejoras
+
+- Agregar soporte para mas operadores
+- Permitir expresiones sin espacios
+- Implementar un analizador lexico
+- Representar el arbol de forma grafica
