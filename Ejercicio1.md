@@ -89,7 +89,12 @@ analizar("2 + 3 * 4")
 analizar("a + b * c")
 analizar("2 + 3 * ( 4 + 5 )")
 ```
-Limitaciones
+
+## Limitaciones
 - No se incluye el operador de resta (-) en la gramatica.
 - La entrada debe estar separada por espacios (ej: 2 + 3, no 2+3).
 - No se realiza analisis lexico avanzado, con tokenizacion simple.
+
+## Conclusion
+
+Se logro implementar un analizador sintactico funcional basado en una gramática formal, capaz de validar expresiones y representar su estructura mediante arboles sintácticos, aplicando correctamente la precedencia de operadores.
