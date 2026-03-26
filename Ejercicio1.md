@@ -1,7 +1,5 @@
 # Ejercicio 1: Analizador Sintactico en Python
 
-## Descripcion
-
 En este ejercicio se implementó un **analizador sintáctico descendente recursivo** en Python, capaz de procesar expresiones aritmeticas simples y generar su correspondiente arbol sintáctico, parse tree.
 
 La implementacion se basa en la gramática proporcionada en las diapositivas del curso.
@@ -91,6 +89,7 @@ analizar("2 + 3 * ( 4 + 5 )")
 ```
 
 ## Limitaciones
+
 - No se incluye el operador de resta (-) en la gramatica.
 - La entrada debe estar separada por espacios (ej: 2 + 3, no 2+3).
 - No se realiza analisis lexico avanzado, con tokenizacion simple.
