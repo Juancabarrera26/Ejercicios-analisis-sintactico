@@ -1,4 +1,4 @@
-# Analisis Sintactico - Taller LPT
+# Talller analisis Sintactico 
 
 ## Descripcion general
 
