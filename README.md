@@ -63,3 +63,33 @@ E
   *
   4
 ```
+Esto refleja correctamente la precedencia de operadores (* antes que +).
+
+---
+
+## Caracteristicas del Analizador
+
+- Manejo de operadores:
+  - Suma (`+`)
+  - Multiplicacion (`*`)
+- Soporte para:
+  - Numeros (`num`)
+  - Identificadores (`id`)
+  - Parentesis `( )`
+- Validacion sintactica de la entrada
+- Generacion de arbol sintactico
+- Deteccion de errores (tokens inesperados o incompletos)
+
+---
+
+## Ejemplos de prueba
+
+```python
+analizar("2 + 3 * 4")
+analizar("a + b * c")
+analizar("2 + 3 * ( 4 + 5 )")
+```
+Limitaciones
+- No se incluye el operador de resta (-) en la gramatica.
+- La entrada debe estar separada por espacios (ej: 2 + 3, no 2+3).
+- No se realiza analisis lexico avanzado, con tokenizacion simple.
