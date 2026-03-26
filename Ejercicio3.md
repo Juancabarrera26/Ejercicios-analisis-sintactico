@@ -13,7 +13,7 @@ El objetivo es demostrar que la gramatica define la estructura del arbol sintact
 
 ---
 
-## Conceptos clave
+## Conceptos 
 
 ### Asociatividad
 
