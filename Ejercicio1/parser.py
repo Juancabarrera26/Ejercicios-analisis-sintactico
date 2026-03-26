@@ -1,8 +1,4 @@
 # Analizador sintactico descendente recursivo
-# Gramatica:
-#   E -> E + T | T
-#   T -> T * F | F
-#   F -> ( E ) | id | num
 
 tokens = []
 pos = 0
